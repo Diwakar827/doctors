@@ -1,0 +1,26 @@
+
+/* authentication pages */
+
+.authentication{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f5f1;
+ }
+ .authentication-form{
+   width: 400px;
+ }
+ .card{
+    background-color: rgb(161, 205, 17);
+ }
+ .authentication .card-title{
+   font-size: 1.5rem;
+   font-weight: bold;
+   background-color: rgb(170, 27, 168);
+   color: white !important;
+   max-width: max-content !important;
+   padding: 7px 15px;
+   margin-left: -40px;
+   border-bottom-left-radius: 10px;
+ }
