@@ -3,6 +3,8 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
+
+const auth=require('../middlewares/authMiddleware');
 const router = express.Router();
 
 router.post("/register", async (req, res, next) => {
@@ -62,7 +64,7 @@ router.post("/login", async (req, res) => {
       });
       return res
         .status(200)
-        .send({ message: "Login Succesful", success: true, data: token });
+        .send({ message: "Login Succesful", success: true, token : token});
     }
   } catch (error) {
     console.log(error);
@@ -71,5 +73,40 @@ router.post("/login", async (req, res) => {
       .send({ message: "Error Logging in", success: false, data: error });
   }
 });
+
+router.post("/getuserdata", auth,async (req, res) => {
+ 
+  console.log("request came");
+  try {
+    const user=await userModel.findOne({_id:req.body.userId});
+
+    if(!user)
+    {
+       return res.status(200).send({
+           message:"User doesnot exists",
+           success:false
+       });
+
+
+    }
+    else
+    {
+       return res.status(200).send({
+           data:{
+           name:user.name,
+           email:user.email,
+           isDoctor:user.isDoctor,
+            isAdmin:user.isAdmin,
+      watchedNotifications:user.watchedNotifications,
+      seenNotifications:user.seenNotifications,
+      unseenNotifications:user.unseenNotifications,
+    },
+           success:true
+       });
+    }
+} catch (error) {
+   
+}
+})
 
 module.exports = router;

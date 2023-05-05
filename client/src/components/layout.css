@@ -1,0 +1,46 @@
+.layout{
+    display: flex;
+    height: 100vh;
+}
+
+
+.sidebar{
+    height: 100%;
+    margin-left: 0px !important;
+    background-color: aqua;
+
+    border: 5px solid black;
+ width: 30vw;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;
+}
+
+.combiner{
+    height: 100%;
+    width: 70vw;
+
+}
+
+.sidebar div{
+    background-color: blanchedalmond;
+    border: 2px solid red;
+}
+
+
+.notification{
+    background-color: burlywood;
+    border: 2px solid black;
+     display: flex;
+     justify-content: space-evenly;
+    width: 65vw;
+    height: 80px;
+}
+
+.content{
+    background-color: blueviolet;
+    height: 90vh;
+    width:70vw;
+
+
+}

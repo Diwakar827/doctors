@@ -20,11 +20,15 @@ const Login = () => {
         console.log(response.data.token);
         toast.success(response.data.message);
         toast.success("navigating to home page");
-        navigate("/");
+            
+        localStorage.setItem('token', response.data.token);
+
+          navigate("/home");
       } else {
         toast.error(response.data.message);
       }
     } catch (err) {
+      console.log(err);
       toast.error("something went wrong");
     }
   };
