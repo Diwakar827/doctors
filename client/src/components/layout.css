@@ -1,46 +1,88 @@
-.layout{
-    display: flex;
-    height: 100vh;
-}
+.main{
 
+    padding: 20px;
+    height: 100vh;
+
+}
 
 .sidebar{
-    height: 100%;
-    margin-left: 0px !important;
-    background-color: aqua;
-
-    border: 5px solid black;
- width: 30vw;
- display: flex;
- flex-direction: column;
- justify-content: space-evenly;
+    background-color: #005555;
+    border-radius: 5px;
+    box-shadow: 0 0 2px grey;
+    margin-right: 20px;
+    min-height: 100%;
+    width: 300px;
+    color: white;
 }
-
-.combiner{
-    height: 100%;
-    width: 70vw;
+.collapsed-sidebar{
+    background-color: #005555;
+    border-radius: 5px;
+    box-shadow: 0 0 2px grey;
+    margin-right: 20px;
+    min-height: 100%;
+    width: 60px;
+    color: white;
+    
 
 }
-
-.sidebar div{
-    background-color: blanchedalmond;
-    border: 2px solid red;
-}
-
-
-.notification{
-    background-color: burlywood;
-    border: 2px solid black;
-     display: flex;
-     justify-content: space-evenly;
-    width: 65vw;
-    height: 80px;
-}
-
 .content{
-    background-color: blueviolet;
-    height: 90vh;
-    width:70vw;
-
-
+    width:100%;
+    height: 100%;
 }
+.header{
+    background-color: white;
+    box-shadow: 0 0 2px grey;
+    border-radius: 5px;
+   
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.body{
+    background-color: wheat;
+    box-shadow: 0 0 2px grey;
+    border-radius: 5px;
+    height: 85vh;
+    width: 100%;
+}
+
+.menu{
+    margin-top: 100px;
+    padding: 0 10px;
+}
+
+.menu-item{
+    margin-top: 30px;
+}
+
+.menu-item a{
+    color: rgba(255, 255, 255, 0.727);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 10px;
+}
+.menu-item i{
+    color: rgba(255, 255, 255, 0.716);
+    text-decoration: none;
+    font-size: 18px;
+    margin:0 15px;
+}
+
+.active-menu-item{
+    color: white;
+    background-color: #013737;
+    padding: 5px;
+    box-shadow: 3px 3px 3px 3px rgb(149, 128, 252);
+    border-radius: 5px;
+}
+
+.remix-icons{
+    font-size: 30px ;
+    color: black !important;
+    cursor: pointer;
+  }
+
+
