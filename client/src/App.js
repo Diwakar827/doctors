@@ -10,6 +10,8 @@ import { Toaster } from "react-hot-toast";
 import PublicRoute from "./components/PublicRoute";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+import ApplyDoctor from './pages/Applydoctor';
+
 function App() {
   
   
@@ -26,7 +28,15 @@ function App() {
         <Route path="/home" element={ <ProtectedRoute>
               <Home />
             </ProtectedRoute>}></Route>
-         
+          
+            <Route
+          path="/apply-doctor"
+          element={
+            <ProtectedRoute>
+              <ApplyDoctor />
+            </ProtectedRoute>
+          }
+        />
         
       
         

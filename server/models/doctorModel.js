@@ -3,43 +3,43 @@ const doctorSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true,
+      //required: true,
     },
     firstName: {
       type: String,
-      required: true,
+      //required: true,
     },
     lastName: {
       type: String,
-      required: true,
+     // required: true,
     },
     phoneNumber: {
       type: String,
-      required: true,
+    //  required: true,
     },
     website: {
       type: String,
-      required: true,
+     // required: true,
     },
     address: {
       type: String,
-      required: true,
+     // required: true,
     },
     specialization: {
       type: String,
-      required: true,
+     // required: true,
     },
     experience: {
       type: String,
-      required: true,
+    //  required: true,
     },
     feePerCunsultation: {
       type: Number,
-      required: true,
+    //  required: true,
     },
     timings : {
       type: Array,
-      required: true,
+     // required: true,
     },
     status: {
       type: String,

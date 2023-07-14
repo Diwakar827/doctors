@@ -2,22 +2,18 @@ import React, { useState } from "react";
 import "./layout.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from '../redux/userSlice';
+import { setUser } from "../redux/userSlice";
 
-const Layout = ({children }) => {
+const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.user);
 
- 
-
-     const dispatch=useDispatch();
-    const navigate=useNavigate();
-     const{user}=useSelector((state)=>state.user);
- 
   console.log(user);
 
   const [collapsed, setcollapsed] = useState(false);
   const location = useLocation();
 
-  
   const userMenu = [
     {
       name: "Home",
@@ -46,7 +42,7 @@ const Layout = ({children }) => {
     },
     */
   ];
-  
+
   const adminMenu = [
     {
       name: "Home",
@@ -54,25 +50,24 @@ const Layout = ({children }) => {
       icon: "ri-home-line",
     },
     {
-        name: "Users",
-        path: "/users",
-        icon: "ri-user-line",
-      },
-      {
-        name: "Doctors",
-        path: "/doctors",
-        icon: "ri-user-4-line",
-      },
-    
+      name: "Users",
+      path: "/users",
+      icon: "ri-user-line",
+    },
+    {
+      name: "Doctors",
+      path: "/doctors",
+      icon: "ri-user-4-line",
+    },
+
     {
       name: "Profile",
       path: "/profile",
       icon: "ri-user-5-line",
     },
-   
   ];
 
-  const menuToBeRendered = user?.isAdmin?adminMenu:userMenu ;
+  const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
 
   return (
     <div className="main">
@@ -84,25 +79,29 @@ const Layout = ({children }) => {
           <div className="menu">
             {menuToBeRendered.map((menu) => {
               const isActive = location.pathname === menu.path;
-    
+
               return (
-                <div  className={`d-flex menu-item ${ isActive && "active-menu-item"    }`}>
+                <div
+                  className={`d-flex menu-item ${
+                    isActive && "active-menu-item"
+                  }`}
+                >
                   <i className={menu.icon}></i>
                   {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
-
                 </div>
               );
             })}
-            <div  className="d-flex menu-item" onClick={()=>{
-    
-    localStorage.clear();
-    dispatch(setUser(null));
-    navigate("/login"); 
-}} >
-                
-                  <i className="ri-login-circle-line"></i>
-                  {!collapsed && <Link to="/login">Logout</Link>}
-                </div>
+            <div
+              className="d-flex menu-item"
+              onClick={() => {
+                localStorage.clear();
+                dispatch(setUser(null));
+                navigate("/login");
+              }}
+            >
+              <i className="ri-login-circle-line"></i>
+              {!collapsed && <Link to="/login">Logout</Link>}
+            </div>
           </div>
         </div>
         <div className="content">
@@ -116,12 +115,15 @@ const Layout = ({children }) => {
               ></i>
             )}
             <div className="d-flex ">
-            <i className="ri-notification-2-line header-action-icon mr-15"></i>
-            <Link className="anchor mx-2" to='/profile' >{user?user.name:""}</Link>
+              <i className="ri-notification-2-line header-action-icon mr-15"></i>
+              <Link className="anchor mx-2" to="/profile">
+                {user ? user.name : ""}
+              </Link>
             </div>
           </div>
-          <div className="body">{children}  {/* chidren null to be fixed */}
-          <h1> i am body</h1>
+          <div className="body">
+            {children} {/* chidren null to be fixed */}
+           
           </div>
         </div>
       </div>

@@ -5,11 +5,12 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
 
 const auth=require('../middlewares/authMiddleware');
+const doctorModel = require("../models/doctorModel");
 const router = express.Router();
 
 router.post("/register", async (req, res, next) => {
   try {
-    console.log("request came");
+  //  console.log("request came");
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
@@ -76,7 +77,8 @@ router.post("/login", async (req, res) => {
 
 router.post("/getuserdata", auth,async (req, res) => {
  
-  console.log("request came");
+ // console.log("request came");
+  
   try {
     const user=await userModel.findOne({_id:req.body.userId});
 
@@ -105,8 +107,47 @@ router.post("/getuserdata", auth,async (req, res) => {
        });
     }
 } catch (error) {
+  console.log(error);
    
 }
 })
+
+
+router.post("/applydoctor", auth, async (req, res) => {
+   
+  console.log("someone applied to doctor");
+  try {
+
+    const newdoctor = new doctorModel({ ...req.body, status: "pending" });
+    
+    await newdoctor.save();
+    const adminUser = await userModel.findOne({ isAdmin: true });
+
+    const unseenNotifications = adminUser.unseenNotifications;
+    unseenNotifications.push({
+      type: "new-doctor-request",
+      message: newdoctor.firstName +" "+newdoctor.lastName+" "+ "has applied for a doctor account",
+      data: {
+        doctorId: newdoctor._id,
+        name: newdoctor.firstName + " " + newdoctor.lastName,
+      },
+      onClickPath: "/admin/doctorslist",
+    });
+    await userModel.findByIdAndUpdate(adminUser._id, { unseenNotifications });
+    res.status(200).send({
+      success: true,
+      message: "Doctor account applied successfully",
+    });
+  } catch (error) {
+
+    console.log(error);
+    res.status(500).send({
+      message: "Error applying doctor account",
+      success: false,
+      error,
+    });
+  }
+});
+
 
 module.exports = router;
