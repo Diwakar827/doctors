@@ -25,6 +25,7 @@ function ProtectedRoute(props) {
       dispatch(hideLoading());
       if (response.data.success) {
         dispatch(setUser(response.data.data));
+        
         console.log("done");
       } else {
         localStorage.clear()
@@ -38,7 +39,7 @@ function ProtectedRoute(props) {
   };
 
   useEffect(() => {
-    if (!user) {
+    if (!user ) {
       getUser();
     }
   }, [user]);

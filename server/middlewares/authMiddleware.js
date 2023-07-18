@@ -3,8 +3,12 @@ const jwt=require('jsonwebtoken');
 module.exports=async(req,res,next)=>{
   
       try {
-    const token=req.headers["authorization"].split(" ")[1];
-    // console.log(token);
+            
+        let str=req.headers["authorization"];
+       
+        if (typeof str === 'string') 
+       {const token=str.split(" ")[1];
+        // console.log(token);
 
     jwt.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
 
@@ -21,8 +25,9 @@ module.exports=async(req,res,next)=>{
          }
 
 
-
+    
     })
+  } 
 
 }
 catch(error)

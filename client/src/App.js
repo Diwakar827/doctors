@@ -11,6 +11,13 @@ import PublicRoute from "./components/PublicRoute";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import ApplyDoctor from './pages/Applydoctor';
+import Notifications from "./pages/Notifications";
+import UsersList from "./pages/Admin/UsersList";
+import DoctorsList from "./pages/Admin/DoctorsList";
+import Profile from "./pages/Doctor/Profile";
+import BookAppointment from "./pages/BookAppointment";
+import Appointments from "./pages/Appointments";
+import DoctorAppointments from "./pages/Doctor/DoctorAppointments";
 
 function App() {
   
@@ -38,6 +45,69 @@ function App() {
           }
         />
         
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoute>
+             <Notifications></Notifications>
+            </ProtectedRoute>
+          }
+        />
+         
+         <Route
+          path="/users"
+          element={
+            <ProtectedRoute>
+             <UsersList></UsersList>
+            </ProtectedRoute>
+          }
+        />
+         
+         <Route
+          path="/doctors"
+          element={
+            <ProtectedRoute>
+             <DoctorsList></DoctorsList>
+            </ProtectedRoute>
+          }
+        />
+
+    <Route
+          path="/doctor/profile/:doctorid"
+          element={
+            <ProtectedRoute>
+             <Profile></Profile>
+            </ProtectedRoute>
+          }
+        />
+
+<Route
+          path="/book-appointment/:doctorId"
+          element={
+            <ProtectedRoute>
+             <BookAppointment></BookAppointment>
+            </ProtectedRoute>
+          }
+        />
+        
+        <Route
+          path="/appointments"
+          element={
+            <ProtectedRoute>
+            <Appointments></Appointments>
+            </ProtectedRoute>
+          }
+        />
+
+
+    <Route
+          path="/doctor/appointments"
+          element={
+            <ProtectedRoute>
+            <DoctorAppointments></DoctorAppointments>
+            </ProtectedRoute>
+          }
+        />
       
         
       </Routes>

@@ -3,6 +3,7 @@ import "./layout.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/userSlice";
+import { Badge } from "antd";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -67,7 +68,26 @@ const Layout = ({ children }) => {
     },
   ];
 
-  const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
+  const doctorMenu = [
+    {
+      name: "Home",
+      path: "/",
+      icon: "ri-home-line",
+    },
+    {
+      name: "Appointments",
+      path: "/doctor/appointments",
+      icon: "ri-file-list-line",
+    },
+    {
+      name: "Profile",
+      path: `/doctor/profile/${user?._id}`,
+      icon: "ri-user-line",
+    },
+  ];
+ 
+  const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor ? doctorMenu : userMenu;
+  const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "User";
 
   return (
     <div className="main">
@@ -75,6 +95,7 @@ const Layout = ({ children }) => {
         <div className={collapsed ? "collapsed-sidebar" : "sidebar"}>
           <div className="sidebar-header">
             <h1 className="logo">Dh</h1>
+            <h1 className="logo">{role}</h1>
           </div>
           <div className="menu">
             {menuToBeRendered.map((menu) => {
@@ -115,6 +136,7 @@ const Layout = ({ children }) => {
               ></i>
             )}
             <div className="d-flex ">
+            <Badge count={user?.unseenNotifications.length} onClick={()=>navigate('/notifications')}></Badge>
               <i className="ri-notification-2-line header-action-icon mr-15"></i>
               <Link className="anchor mx-2" to="/profile">
                 {user ? user.name : ""}
