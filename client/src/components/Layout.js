@@ -31,11 +31,7 @@ const Layout = ({ children }) => {
       path: "/apply-doctor",
       icon: "ri-user-star-line",
     },
-    {
-      name: "Profile",
-      path: "/profile",
-      icon: "ri-user-5-line",
-    },
+  
     /*{  removing  this as common for all admin,user,doctor abd adding static
       name: "Logout",
       path: "/logout",
@@ -61,11 +57,12 @@ const Layout = ({ children }) => {
       icon: "ri-user-4-line",
     },
 
-    {
+    /*{
       name: "Profile",
-      path: "/profile",
+      path: `/doctor/profile/${user?._id}`,
       icon: "ri-user-5-line",
     },
+    */
   ];
 
   const doctorMenu = [
