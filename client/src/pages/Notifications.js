@@ -18,7 +18,7 @@ const Notifications = () => {
    
         try {
             const response = await axios.post(
-              "http://localhost:5000/api/userchecking/markunseennotifications",
+              "https://doctorsking.vercel.app/api/userchecking/markunseennotifications",
               {userId:user._id},{
                 headers:{
                     // eslint-disable-next-line no-useless-concat
@@ -49,7 +49,7 @@ const Notifications = () => {
        
         try {
             const response = await axios.post(
-              "http://localhost:5000/api/userchecking/deleteallnotifications",
+              "https://doctorsking.vercel.app/userchecking/deleteallnotifications",
               {userId:user._id},{
                 headers:{
                     // eslint-disable-next-line no-useless-concat

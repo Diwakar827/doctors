@@ -15,7 +15,7 @@ function DoctorsList() {
   const getDoctorsData = async () => {
     try {
     //  dispatch(showLoading());
-    const response = await axios.get("http://localhost:5000/api/admin/getalldoctors",{
+    const response = await axios.get("https://doctorsking.vercel.app/api/admin/getalldoctors",{
         headers:{
             // eslint-disable-next-line no-useless-concat
             Authorization:'Bearer'+" "+localStorage.getItem('token')
@@ -35,7 +35,7 @@ function DoctorsList() {
     try {
      // dispatch(showLoading());
       const resposne = await axios.post(
-        "http://localhost:5000/api/admin/changedoctoraccountstatus",
+        "https://doctorsking.vercel.app/api/admin/changedoctoraccountstatus",
         { doctorId: record._id, userId: record.userId, status: status },
         {
           headers: {

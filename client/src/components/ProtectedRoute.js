@@ -14,7 +14,7 @@ function ProtectedRoute(props) {
     try {
       dispatch(showLoading())
        
-      const response=await axios.post('http://localhost:5000/api/userchecking/getuserdata',{},{
+      const response=await axios.post('https://doctorsking.vercel.app/getuserdata',{},{
                 headers:{
                     // eslint-disable-next-line no-useless-concat
                     Authorization:'Bearer'+" "+localStorage.getItem('token')

@@ -19,7 +19,7 @@ function Profile() {
     try {
      // dispatch(showLoading());
       const response = await axios.post(
-        "http://localhost:5000/api/doctor/update-doctor-profile",
+        "https://doctorsking.vercel.app/api/doctor/update-doctor-profile",
         {
           ...values,
           userId: user._id,
@@ -52,7 +52,7 @@ function Profile() {
     try {
      // dispatch(showLoading());
       const response = await axios.post(
-        "http://localhost:5000/api/doctor/get-doctor-info-by-user-id",
+        "https://doctorsking.vercel.app/api/doctor/get-doctor-info-by-user-id",
         {
           userId: params.userId,
         },

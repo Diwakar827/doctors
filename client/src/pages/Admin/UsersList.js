@@ -16,7 +16,7 @@ const UsersList=()=>{
     const getUsersData = async () => {
       try {
        // dispatch(showLoading());
-        const response = await axios.get("http://localhost:5000/api/admin/getallusers",{
+        const response = await axios.get("https://doctorsking.vercel.app/api/admin/getallusers",{
                 headers:{
                     // eslint-disable-next-line no-useless-concat
                     Authorization:'Bearer'+" "+localStorage.getItem('token')
