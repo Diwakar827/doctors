@@ -11,7 +11,7 @@ const Register = () => {
   const registerUser = async(userData) => {
     try {
       const response = await axios.post(
-        "https://doctorsking.vercel.app/api/userchecking/register",
+        "https://doctors-server-nu.vercel.app/api/userchecking/register",
         userData
       );
       console.log(response);

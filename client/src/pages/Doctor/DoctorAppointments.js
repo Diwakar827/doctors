@@ -15,7 +15,7 @@ function DoctorAppointments() {
     try {
       dispatch(showLoading());
       const resposne = await axios.get(
-        "https://doctorsking.vercel.app/api/doctor/get-appointments-by-doctor-id",
+        "https://doctors-server-nu.vercel.app/doctor/get-appointments-by-doctor-id",
         {
             headers: {
                 // eslint-disable-next-line no-useless-concat
@@ -36,7 +36,7 @@ function DoctorAppointments() {
     try {
       dispatch(showLoading());
       const resposne = await axios.post(
-        "https://doctorsking.vercel.app/api/doctor/change-appointment-status",
+        "https://doctors-server-nu.vercel.app/api/doctor/change-appointment-status",
         { appointmentId : record._id, status: status },
         {
             headers: {

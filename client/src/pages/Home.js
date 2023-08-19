@@ -11,7 +11,7 @@ function Home() {
   const getData = async () => {
     try {
       dispatch(showLoading())
-      const response = await axios.get("https://doctorsking.vercel.app/api/userchecking/get-all-approved-doctors", {
+      const response = await axios.get("https://doctors-server-nu.vercel.app/api/userchecking/get-all-approved-doctors", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },

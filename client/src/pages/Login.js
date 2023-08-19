@@ -10,7 +10,7 @@ const Login = () => {
   const onFinish = async (values) => {
     try {
       const response = await axios.post(
-        "https://doctorsking.vercel.app/api/userchecking/login",
+        "https://doctors-server-nu.vercel.app/api/userchecking/login",
         values
       );
 

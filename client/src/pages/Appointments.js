@@ -13,7 +13,7 @@ function Appointments() {
   const getAppointmentsData = async () => {
     try {
       dispatch(showLoading());
-      const resposne = await axios.get("https://doctorsking.vercel.app/api/userchecking/get-appointments-by-user-id", {
+      const resposne = await axios.get("https://doctors-server-nu.vercel.app/api/userchecking/get-appointments-by-user-id", {
         headers: {
             // eslint-disable-next-line no-useless-concat
             Authorization: "Bearer" + " " + localStorage.getItem("token"),

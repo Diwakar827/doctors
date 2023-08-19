@@ -20,7 +20,7 @@ function ApplyDoctor() {
       console.log( moment(values.timings[0]).format("HH:mm"));
      
       const response = await axios.post(
-        "https://doctorsking.vercel.app/api/userchecking/applydoctor",
+        "https://doctors-server-nu.vercel.app/api/userchecking/applydoctor",
         {
           ...values,
          userId: user._id,

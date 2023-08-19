@@ -23,7 +23,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://doctorsking.vercel.app/api/doctor/get-doctor-info-by-id",
+        "https://doctors-server-nu.vercel.app/api/doctor/get-doctor-info-by-id",
         {
           doctorId: params.doctorId,
         },
@@ -48,7 +48,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://doctorsking.vercel.app/api/userchecking/check-booking-avilability",
+        "https://doctors-server-nu.vercel.app/api/userchecking/check-booking-avilability",
         {
           doctorId: params.doctorId,
           date: date,
@@ -78,7 +78,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "https://doctorsking.vercel.app/api/userchecking/book-appointment",
+        "https://doctors-server-nu.vercel.app/api/userchecking/book-appointment",
         {
           doctorId: params.doctorId,
           userId: user._id,
