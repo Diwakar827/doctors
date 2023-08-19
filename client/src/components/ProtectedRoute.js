@@ -28,13 +28,15 @@ function ProtectedRoute(props) {
         
         console.log("done");
       } else {
+       
         localStorage.clear()
-        navigate("/login");
+        //navigate("/login");
       }
     } catch (error) {  
+      console.log(error);
       dispatch(hideLoading());
       localStorage.clear()
-      navigate("/login");
+    //  navigate("/login");
     }
   };
 
