@@ -10,13 +10,12 @@ const doctorRouter=require("./routes/doctorRoutes");
 const cors=require('cors');
 
 app.use(cors({
-  origin:["https://doctors-client-xi.vercel.app/"],
-  methods:["POST","GET"],
+  origin:["https://doctors-client-xi.vercel.app","*"],
+  methods: ["GET", "POST", "PUT", "DELETE"], 
   credentials:true
 }))
 
 app.use(express.json());
-app.use(cors());
 app.use('/api/userchecking',userrouter);
 app.use("/api/admin", adminrouter);
 app.use("/api/doctor", doctorRouter);
