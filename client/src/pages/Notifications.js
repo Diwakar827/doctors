@@ -49,7 +49,7 @@ const Notifications = () => {
        
         try {
             const response = await axios.post(
-              "https://doctors-server-nu.vercel.app/userchecking/deleteallnotifications",
+              "https://doctors-server-nu.vercel.app/api/userchecking/deleteallnotifications",
               {userId:user._id},{
                 headers:{
                     // eslint-disable-next-line no-useless-concat
