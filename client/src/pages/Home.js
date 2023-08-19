@@ -21,6 +21,7 @@ function Home() {
         setDoctors(response.data.data);
       }
     } catch (error) {
+      console.log(error);
       dispatch(hideLoading())
     }
   };
