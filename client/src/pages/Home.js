@@ -30,14 +30,18 @@ function Home() {
     getData();
   }, []);
   return (
-    <Layout>
-      <Row gutter={20}>
+    <Layout  >
+     {/* <Row  className="box-container"> */}
+     <div className="box-container">
         {doctors.map((doctor) => (
-          <Col span={8} xs={24} sm={24} lg={8}>
+        //  <Col span={8} xs={24} sm={24} lg={8}>
             <Doctor doctor={doctor} />
-          </Col>
+
+         // </Col>
+
         ))}
-      </Row>
+    {/* </Row> */}
+    </div>
     </Layout>
   );
 }

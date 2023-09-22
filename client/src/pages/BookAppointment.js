@@ -147,21 +147,24 @@ function BookAppointment() {
                 <b>Website : </b>
                 {doctor.website}
               </p>
-              <div className="d-flex flex-column pt-2 mt-2">
-                <DatePicker
+              <div className="pt-2 mt-2">
+                <DatePicker 
                   format="DD-MM-YYYY"
                   onChange={(value) => {
                     setDate(moment(value).format("DD-MM-YYYY"));
                     setIsAvailable(false);
                   }}
+                 
                 />
-                <TimePicker
+                <TimePicker 
                   format="HH:mm"
                   className="mt-3"
                   onChange={(value) => {
                     setIsAvailable(false);
                     setTime(moment(value).format("HH:mm"));
                   }}
+
+             
                 />
                 {!isAvailable && (
                   <Button
